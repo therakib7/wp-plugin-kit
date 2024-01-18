@@ -10,7 +10,7 @@
  * @wordpress-plugin
  * Plugin Name:       WP Plugin Kit
  * Plugin URI:        https://wordpress.org/plugins/wp-plugin-kit
- * Description:       A starter plugin for WordPress
+ * Description:       A starter plugin for WordPress that provides a foundational structure to build upon
  * Version:           0.1.0
  * Author:            Rakib
  * Author URI:        https://therakib7.com
@@ -21,7 +21,7 @@
  * Author URI:        https://therakib7.com
  * Text Domain:       wp-plugin-kit
  * Domain Path:       /languages
-  * License: GPL3
+ * License: GPL3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
 
