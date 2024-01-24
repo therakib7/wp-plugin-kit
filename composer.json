@@ -1,0 +1,21 @@
+{
+	"name": "therakib7/wp-plugin-kit",
+	"description": "A starter plugin for WordPress that provides a foundational structure to build upon.",
+	"version": "0.1.0",
+	"license": "GPL-3-or-later",
+	"authors": [
+		{
+			"name": "Rakib",
+			"email": "therakib7@gmail.com"
+		}
+	],
+	"require": {
+		"php": "^7.4 || ^8.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"WpPluginKit\\": "includes"
+		}
+	},
+	"minimum-stability": "dev"
+}
