@@ -12,10 +12,28 @@
 	"require": {
 		"php": "^7.4 || ^8.0"
 	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0",
+		"tareq1988/wp-php-cs-fixer": "dev-master",
+		"phpcompatibility/phpcompatibility-wp": "*"
+	},
 	"autoload": {
 		"psr-4": {
 			"WpPluginKit\\": "includes"
 		}
 	},
-	"minimum-stability": "dev"
+	"scripts": {
+		"phpcs": [
+			"phpcs -ps"
+		],
+		"phpcbf": [
+			"phpcbf -p"
+		]
+	},
+	"minimum-stability": "dev",
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
 }
