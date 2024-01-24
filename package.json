@@ -8,5 +8,14 @@
 			"name": "Rakib",
 			"email": "therakib7@gmail.com"
 		}
-	]
+	],
+	"main": "src/index.tsx",
+	"scripts": {
+		"start": "wp-scripts start",
+		"start:hot": "wp-scripts start --hot",
+		"build": "wp-scripts build"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^27.0.0"
+	}
 }
