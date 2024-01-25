@@ -1,5 +1,5 @@
 === WP Plugin Kit ===
-Contributors: rakib
+Contributors: wp-plugin-kit
 Tags: wordpress, plugin, starter
 Requires at least: 5.8
 Tested up to: 6.4
@@ -7,7 +7,7 @@ Requires PHP: 7.4
 Stable tag: 0.1.0
 License: GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Author: Rakib
+Author: WpPluginKit
 Author URI: https://therakib7.com
 Donate link: [Your donation link if any]
 

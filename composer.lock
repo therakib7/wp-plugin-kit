@@ -2131,12 +2131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "e0bb06cee41684be1b7be85b275afcffcc85f4e4"
+                "reference": "68bb4dce9a244a7b3ebcf70ebe38b857eca3d6b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/e0bb06cee41684be1b7be85b275afcffcc85f4e4",
-                "reference": "e0bb06cee41684be1b7be85b275afcffcc85f4e4",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/68bb4dce9a244a7b3ebcf70ebe38b857eca3d6b6",
+                "reference": "68bb4dce9a244a7b3ebcf70ebe38b857eca3d6b6",
                 "shasum": ""
             },
             "require": {
@@ -2204,7 +2204,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-01-24T01:41:07+00:00"
+            "time": "2024-01-25T16:42:29+00:00"
         },
         {
             "name": "tareq1988/wp-php-cs-fixer",
@@ -2486,5 +2486,5 @@
         "php": "^7.4 || ^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }

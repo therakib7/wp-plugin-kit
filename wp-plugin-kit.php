@@ -49,7 +49,7 @@ final class WpPluginKit {
 	 *
      * @var string
      */
-    const VERSION = '0.1.0';
+    private const VERSION = '0.1.0';
 
 	/**
      * Instance of self
@@ -67,7 +67,7 @@ final class WpPluginKit {
 	 *
      * @var string
      */
-    const MIN_PHP = '7.4';
+    private const MIN_PHP = '7.4';
 
     /**
      * Constructor for the WpPluginKit class
@@ -81,10 +81,10 @@ final class WpPluginKit {
 
         $this->define_constants();
 
-		register_activation_hook( __FILE__, array( $this, 'activate' ) );
-        register_deactivation_hook( __FILE__, array( $this, 'deactivate' ) );
+		register_activation_hook( __FILE__, [ $this, 'activate' ] );
+        register_deactivation_hook( __FILE__, [ $this, 'deactivate' ] );
 
-		add_action( 'wp_loaded', array( $this, 'flush_rewrite_rules' ) );
+		add_action( 'wp_loaded', [ $this, 'flush_rewrite_rules' ] );
 
 		$this->init_plugin();
     }
@@ -149,6 +149,7 @@ final class WpPluginKit {
      */
     public function includes() {
         // Common classes
+        WpPluginKit\Ctrl\MainCtrl::init();
     }
 
 	/**
@@ -161,7 +162,7 @@ final class WpPluginKit {
     public function init_hooks() {
 
         // Localize our plugin
-        add_action( 'init', array( $this, 'localization_setup' ) );
+        add_action( 'init', [ $this, 'localization_setup' ] );
     }
 
 	/**

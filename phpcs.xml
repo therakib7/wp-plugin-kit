@@ -106,6 +106,14 @@
     <rule ref="Generic.Arrays.DisallowShortArraySyntax">
         <severity>0</severity>
     </rule>
+    <rule ref="Universal.Arrays.DisallowShortArraySyntax.Found">
+        <severity>0</severity>
+    </rule>
+    <!-- Convert array() to [] -->
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Universal.Files.SeparateFunctionsFromOO.Mixed">
+        <severity>0</severity>
+    </rule>
     <rule ref="WordPress.Security.ValidatedSanitizedInput">
         <properties>
             <property name="customSanitizingFunctions" type="array">
