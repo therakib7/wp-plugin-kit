@@ -15,11 +15,14 @@
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.0",
 		"tareq1988/wp-php-cs-fixer": "dev-master",
-		"phpcompatibility/phpcompatibility-wp": "*"
+		"phpcompatibility/phpcompatibility-wp": "dev-master",
+		"wp-phpunit/wp-phpunit": "dev-master",
+		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"autoload": {
 		"psr-4": {
-			"WpPluginKit\\": "includes"
+			"WpPluginKit\\": "includes",
+			"WpPluginKit\\Tests\\": "tests/phpunit"
 		}
 	},
 	"scripts": {
@@ -28,6 +31,12 @@
 		],
 		"phpcbf": [
 			"phpcbf -p"
+		],
+		"test": [
+			"phpunit"
+		],
+		"test:all": [
+			"phpcs -ps & phpunit"
 		]
 	},
 	"minimum-stability": "dev",

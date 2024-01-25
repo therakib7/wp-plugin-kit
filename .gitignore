@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 vendor
 build
+.phpunit.result.cache
 dist
 dist-ssr
 *.local
