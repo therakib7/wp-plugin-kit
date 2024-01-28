@@ -3,7 +3,11 @@
 namespace WpPluginKit\Ctrl;
 
 use WpPluginKit\Traits\Singleton;
-use WpPluginKit\Ctrl\Api\ApiCtrl;
+use WpPluginKit\Ctrl\{
+    Api\ApiCtrl,
+    MenuPage\MenuPageCtrl,
+    Asset\AssetCtrl
+};
 
 /**
  * Main controller
@@ -17,6 +21,8 @@ class MainCtrl {
     use Singleton;
 
     public function __construct() {
+        new MenuPageCtrl();
+        new AssetCtrl();
         new ApiCtrl();
     }
 }

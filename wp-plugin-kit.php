@@ -111,15 +111,15 @@ final class WpPluginKit {
      * @return void
      */
     public function define_constants() {
-        define( 'RAKIB_VERSION', self::VERSION );
-        define( 'RAKIB_FILE', __FILE__ );
-        define( 'RAKIB_DIR', __DIR__ );
-        define( 'RAKIB_PATH', plugin_dir_path( RAKIB_FILE ) );
-        define( 'RAKIB_URL', plugins_url( '', RAKIB_FILE ) );
-        define( 'RAKIB_SLUG', basename( RAKIB_DIR ) );
-        define( 'RAKIB_TEMPLATE_PATH', RAKIB_PATH . '/templates' );
-        define( 'RAKIB_BUILD', RAKIB_URL . '/build' );
-        define( 'RAKIB_ASSETS', RAKIB_URL . '/assets' );
+        define( 'WP_PLUGIN_KIT_VERSION', self::VERSION );
+        define( 'WP_PLUGIN_KIT_FILE', __FILE__ );
+        define( 'WP_PLUGIN_KIT_DIR', __DIR__ );
+        define( 'WP_PLUGIN_KIT_PATH', plugin_dir_path( WP_PLUGIN_KIT_FILE ) );
+        define( 'WP_PLUGIN_KIT_URL', plugins_url( '', WP_PLUGIN_KIT_FILE ) );
+        define( 'WP_PLUGIN_KIT_SLUG', basename( WP_PLUGIN_KIT_DIR ) );
+        define( 'WP_PLUGIN_KIT_TEMPLATE_PATH', WP_PLUGIN_KIT_PATH . '/templates' );
+        define( 'WP_PLUGIN_KIT_BUILD', WP_PLUGIN_KIT_URL . '/build' );
+        define( 'WP_PLUGIN_KIT_ASSETS', WP_PLUGIN_KIT_URL . '/assets' );
     }
 
 	/**
