@@ -1,6 +1,6 @@
 const defaults = require('@wordpress/scripts/config/webpack.config');
 const { getWebpackEntryPoints } = require('@wordpress/scripts/utils/config');
-
+const path = require('path');
 const config = { ...defaults };
 
 // Add server only for development mode and not for production.
@@ -29,6 +29,17 @@ module.exports = {
 		index: './src/index.tsx'
 	},
 	resolve: {
+		alias: {
+			'@': path.resolve(__dirname, './src'),
+			'@assets': path.resolve(__dirname, './src/assets'),
+			'@style': path.resolve(__dirname, './src/style'),
+			'@utils': path.resolve(__dirname, './src/utils'),
+			'@data': path.resolve(__dirname, './src/data'),
+			'@interfaces': path.resolve(__dirname, './src/interfaces'),
+			'@components': path.resolve(__dirname, './src/components'),
+			'@utils': path.resolve(__dirname, './src/utils'),
+			'@pages': path.resolve(__dirname, './src/pages'),
+		},
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
 	},
 };
