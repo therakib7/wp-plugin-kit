@@ -31,7 +31,7 @@ class AdminMenu {
             'manage_options',
             'wp-plugin-kit',
             [ $this, 'render' ],
-            'dashicons-book',
+            'dashicons-list-view',
             75
         );
     }
