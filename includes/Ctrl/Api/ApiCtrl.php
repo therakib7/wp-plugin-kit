@@ -11,6 +11,7 @@ use WpPluginKit\Ctrl\Api\Type\{
  * Class ApiCtrl
  *
  * Controller for registering custom REST API endpoints.
+ * 
  * @since 0.1.0
  */
 class ApiCtrl {

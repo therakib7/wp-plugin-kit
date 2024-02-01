@@ -17,8 +17,6 @@
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Tested up to:      6.4
- * Author:            WpPluginKit
- * Author URI:        https://therakib7.com
  * Text Domain:       wp-plugin-kit
  * Domain Path:       /languages
  * License: GPL3
