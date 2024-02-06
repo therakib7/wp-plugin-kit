@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Ctrl\MenuPage\Type;
+namespace WpPluginKit\Controllers\MenuPage\Types;
 
 /**
  * Admin Menu Register

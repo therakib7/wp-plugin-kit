@@ -1,13 +1,14 @@
 <?php
 
-namespace WpPluginKit\Ctrl;
+namespace WpPluginKit\Controllers;
 
 use WpPluginKit\Traits\Singleton;
-use WpPluginKit\Ctrl\{
+use WpPluginKit\Controllers\{
     Api\ApiCtrl,
     MenuPage\MenuPageCtrl,
     Asset\AssetCtrl
 };
+use WpPluginKit\Setup\Installer;
 
 /**
  * Main controller
@@ -24,5 +25,6 @@ class MainCtrl {
         new MenuPageCtrl();
         new AssetCtrl();
         new ApiCtrl();
+        new Installer();
     }
 }

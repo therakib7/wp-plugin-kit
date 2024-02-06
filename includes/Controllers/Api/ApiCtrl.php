@@ -1,9 +1,9 @@
 <?php
 
-namespace WpPluginKit\Ctrl\Api;
+namespace WpPluginKit\Controllers\Api;
 
-use WpPluginKit\Ctrl\Api\Type\{
-    Book,
+use WpPluginKit\Controllers\Api\Types\{
+    Todo,
     Setting,
 };
 
@@ -11,7 +11,7 @@ use WpPluginKit\Ctrl\Api\Type\{
  * Class ApiCtrl
  *
  * Controller for registering custom REST API endpoints.
- * 
+ *
  * @since 0.1.0
  */
 class ApiCtrl {
@@ -39,7 +39,7 @@ class ApiCtrl {
         $this->class_map = apply_filters(
             'rakib_rest_api_class_map',
             [
-                Book::class,
+                Todo::class,
                 Setting::class,
             ]
         );

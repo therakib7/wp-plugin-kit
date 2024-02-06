@@ -147,7 +147,7 @@ final class WpPluginKit {
      */
     public function includes() {
         // Common classes
-        WpPluginKit\Ctrl\MainCtrl::init();
+        WpPluginKit\Controllers\MainCtrl::init();
     }
 
 	/**

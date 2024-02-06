@@ -1,16 +1,14 @@
 <?php
+namespace WpPluginKit\Controllers\Api\Types;
 
-namespace WpPluginKit\Ctrl\Api\Type;
-
-use WpPluginKit\Abstracts\RestCtrl;
-use WpPluginKit\Helper\Fns;
+use WpPluginKit\Abstracts\RestApi;
 
 /**
- * API Book class.
+ * API Todo class.
  *
  * @since 0.1.0
  */
-class Book extends RestCtrl {
+class Todo extends RestApi {
 
     /**
      * Route base.
@@ -19,7 +17,7 @@ class Book extends RestCtrl {
      *
      * @since 0.1.0
      */
-    protected $base = 'books';
+    protected $base = 'todos';
 
     /**
      * Register all routes related with api.
@@ -36,9 +34,7 @@ class Book extends RestCtrl {
             [
                 'methods' => 'GET',
                 'callback' => [ $this, 'get' ],
-                'permission_callback' => function () {
-                    return Fns::gate( $this->base, 'get' );
-                },
+                'permission_callback' => [ $this, 'permission' ],
                 'args' => [
                     'type' => [
                         'validate_callback' => function ( $param ) {
@@ -51,7 +47,7 @@ class Book extends RestCtrl {
     }
 
     /**
-     * Get reqeust
+     * Get request
      *
      * @since 0.1.0
      *

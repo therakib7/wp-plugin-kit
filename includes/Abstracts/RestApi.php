@@ -10,7 +10,7 @@ use WP_REST_Controller;
  *
  * @since 0.1.0
  */
-abstract class RestCtrl extends WP_REST_Controller {
+abstract class RestApi extends WP_REST_Controller {
 
 
     /**
@@ -35,7 +35,7 @@ abstract class RestCtrl extends WP_REST_Controller {
      * @return bool
      */
 
-    public function gate( $req ) {
+    public function permission( $req ) {
         // You can access parameters from the $req object
         // $param = $req->get_param('param');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Ctrl\Asset;
+namespace WpPluginKit\Controllers\Asset;
 
 /**
  * AssetCtrl class.

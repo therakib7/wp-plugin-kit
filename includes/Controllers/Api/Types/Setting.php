@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Ctrl\Api\Type;
+namespace WpPluginKit\Controllers\Api\Types;
 
-use WpPluginKit\Abstracts\RestCtrl;
+use WpPluginKit\Abstracts\RestApi;
 
 /**
  * API Setting class.
@@ -10,13 +10,13 @@ use WpPluginKit\Abstracts\RestCtrl;
  * @since 0.1.0
  */
 
-class Setting extends RestCtrl {
+class Setting extends RestApi {
 
     /**
      * Route base.
      *
      * @var string
-     * 
+     *
      * @since 0.1.0
      */
     protected $base = 'settings';
@@ -25,7 +25,7 @@ class Setting extends RestCtrl {
      * Register all routes related with api.
      *
      * @since 0.1.0
-     * 
+     *
      * @return void
      */
 
@@ -35,7 +35,7 @@ class Setting extends RestCtrl {
             [
                 'methods' => 'GET',
                 'callback' => [ $this, 'get' ],
-                'permission_callback' => [ $this, 'gate' ],
+                'permission_callback' => [ $this, 'permission' ],
             ]
         );
 
@@ -44,7 +44,7 @@ class Setting extends RestCtrl {
             [
                 'methods' => 'POST',
                 'callback' => [ $this, 'create' ],
-                'permission_callback' => [ $this, 'gate' ],
+                'permission_callback' => [ $this, 'permission' ],
             ]
         );
     }

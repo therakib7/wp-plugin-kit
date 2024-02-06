@@ -1,7 +1,7 @@
 <?php
-namespace WpPluginKit\Ctrl\MenuPage;
+namespace WpPluginKit\Controllers\MenuPage;
 
-use WpPluginKit\Ctrl\MenuPage\Type\{
+use WpPluginKit\Controllers\MenuPage\Types\{
 	AdminMenu
 };
 
