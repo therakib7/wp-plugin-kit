@@ -8,11 +8,14 @@ use WpPluginKit\Helpers\Keys;
  * Class Installer.
  *
  * Install necessary database tables and options for the plugin.
+ *
+ * @since 0.1.0
  */
 class Installer {
 
+
     public function __construct() {
-        add_action('admin_init', array($this, 'run'));
+        add_action( 'admin_init', [ $this, 'run' ] );
     }
 
     /**
@@ -23,8 +26,8 @@ class Installer {
      * @return void
      */
     public function run(): void {
-        $version = get_option(Keys::VERSION, '0.0.0');
-        if (version_compare($version, WP_PLUGIN_KIT_VERSION, '<')) {
+        $version = get_option( Keys::VERSION, '0.0.0' );
+        if ( version_compare( $version, WP_PLUGIN_KIT_VERSION, '<' ) ) {
             // Update the installed version.
             $this->add_version();
 

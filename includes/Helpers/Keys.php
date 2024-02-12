@@ -43,7 +43,7 @@ class Keys {
      *
      * @since 0.1.0
      */
-    const Migration_RAN_AT = self::PREFIX . 'migration_ran_at';
+    const MIGRATION_RAN_AT = self::PREFIX . 'migration_ran_at';
 
     /**
      * Seeder ran key.

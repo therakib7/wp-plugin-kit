@@ -40,7 +40,7 @@ abstract class RestApi extends WP_REST_Controller {
         // $param = $req->get_param('param');
 
         // Implement your permission check logic here
-        if ( current_user_can( 'administrator' ) ) {
+        if ( current_user_can( 'manage_options' ) ) {
             return true;
         }
 

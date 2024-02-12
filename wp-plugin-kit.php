@@ -41,6 +41,15 @@ defined( 'ABSPATH' ) || exit;
 final class WpPluginKit {
 
     /**
+     * Instance of self
+	 *
+     * @since 0.1.0
+	 *
+     * @var WpPluginKit
+     */
+    private static $instance = null;
+
+    /**
      * Plugin version
      *
      * @since 0.1.0
@@ -49,14 +58,23 @@ final class WpPluginKit {
      */
     private const VERSION = '0.1.0';
 
-	/**
-     * Instance of self
-	 *
+    /**
+     * Plugin slug.
+     *
+     * @var string
+     *
      * @since 0.1.0
-	 *
-     * @var WpPluginKit
      */
-    private static $instance = null;
+    const SLUG = 'wp-plugin-kit';
+
+    /**
+     * Holds various class instances.
+     *
+     * @var array
+     *
+     * @since 0.1.0
+     */
+    private $container = [];
 
     /**
      * Minimum PHP version required
@@ -102,6 +120,36 @@ final class WpPluginKit {
     }
 
     /**
+     * Magic getter to bypass referencing plugin.
+     *
+     * @since 0.1.0
+     *
+     * @param $prop
+     *
+     * @return mixed
+     */
+    public function __get( $prop ) {
+        if ( array_key_exists( $prop, $this->container ) ) {
+            return $this->container[ $prop ];
+        }
+
+        return $this->{$prop};
+    }
+
+    /**
+     * Magic isset to bypass referencing plugin.
+     *
+     * @since 0.1.0
+     *
+     * @param $prop
+     *
+     * @return mixed
+     */
+    public function __isset( $prop ) {
+        return isset( $this->{$prop} ) || isset( $this->container[ $prop ] );
+    }
+
+    /**
      * Define all constants
 	 *
      * @since 0.1.0
@@ -110,11 +158,11 @@ final class WpPluginKit {
      */
     public function define_constants() {
         define( 'WP_PLUGIN_KIT_VERSION', self::VERSION );
+        define( 'WP_PLUGIN_KIT_SLUG', self::SLUG );
         define( 'WP_PLUGIN_KIT_FILE', __FILE__ );
         define( 'WP_PLUGIN_KIT_DIR', __DIR__ );
         define( 'WP_PLUGIN_KIT_PATH', plugin_dir_path( WP_PLUGIN_KIT_FILE ) );
         define( 'WP_PLUGIN_KIT_URL', plugins_url( '', WP_PLUGIN_KIT_FILE ) );
-        define( 'WP_PLUGIN_KIT_SLUG', basename( WP_PLUGIN_KIT_DIR ) );
         define( 'WP_PLUGIN_KIT_TEMPLATE_PATH', WP_PLUGIN_KIT_PATH . '/templates' );
         define( 'WP_PLUGIN_KIT_BUILD', WP_PLUGIN_KIT_URL . '/build' );
         define( 'WP_PLUGIN_KIT_ASSETS', WP_PLUGIN_KIT_URL . '/assets' );
@@ -146,8 +194,13 @@ final class WpPluginKit {
      * @return void
      */
     public function includes() {
-        // Common classes
-        WpPluginKit\Controllers\MainCtrl::init();
+        if ( $this->is_request( 'admin' ) ) {
+            $this->container['installer'] = new WpPluginKit\Setup\Installer();
+            $this->container['admin_menu'] = new WpPluginKit\Admin\Menu();
+        }
+
+        $this->container['assets']   = new WpPluginKit\Assets\Manager();
+        $this->container['rest_api'] = new WpPluginKit\Api\Controller();
     }
 
 	/**

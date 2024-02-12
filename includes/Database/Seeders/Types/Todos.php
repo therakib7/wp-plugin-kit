@@ -3,12 +3,13 @@
 namespace WpPluginKit\Database\Seeders\Types;
 
 use WpPluginKit\Abstracts\DBSeeder;
-use WpPluginKit\Helpers\Keys;
 
 /**
  * Todos Seeder class.
  *
  * Seed some fresh emails for initial startup.
+ *
+ * @since 0.1.0
  */
 class Todos extends DBSeeder {
 

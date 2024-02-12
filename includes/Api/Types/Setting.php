@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Controllers\Api\Types;
+namespace WpPluginKit\Api\Types;
 
 use WpPluginKit\Abstracts\RestApi;
 
@@ -51,11 +51,11 @@ class Setting extends RestApi {
 
     /**
      * Get settings data based on the provided tab.
-     * 
+     *
      * @since 0.1.0
-     * 
+     *
      * @param \WP_REST_Request $req Request object.
-     * 
+     *
      * @return WP_Error|WP_REST_Response
      */
     public function get( $req ) {
@@ -102,11 +102,11 @@ class Setting extends RestApi {
 
     /**
      * Update settings data based on the provided tab.
-     * 
+     *
      * @since 0.1.0
-     * 
+     *
      * @param \WP_REST_Request $req Request object.
-     * 
+     *
      * @return WP_Error|WP_REST_Response
      */
     public function create( $req ) {

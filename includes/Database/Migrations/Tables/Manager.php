@@ -10,6 +10,8 @@ use WpPluginKit\Database\Migrations\Tables\Types\{
  * Database Migration class.
  *
  * It'll seed all of the migrations.
+ *
+ * @since 0.1.0
  */
 class Manager {
 
@@ -29,7 +31,7 @@ class Manager {
 
         $migration_classes = [
             Todos::class,
-            TodoTypes::class
+            TodoTypes::class,
         ];
 
         foreach ( $migration_classes as $migration_class ) {

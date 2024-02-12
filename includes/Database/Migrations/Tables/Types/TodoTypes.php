@@ -7,6 +7,8 @@ use WpPluginKit\Helpers\Keys;
 
 /**
  * TodoTypes migration.
+ *
+ * @since 0.1.0
  */
 class TodoTypes extends DBMigrator {
 

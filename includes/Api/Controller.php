@@ -1,20 +1,20 @@
 <?php
 
-namespace WpPluginKit\Controllers\Api;
+namespace WpPluginKit\Api;
 
-use WpPluginKit\Controllers\Api\Types\{
+use WpPluginKit\Api\Types\{
     Todo,
     Setting,
 };
 
 /**
- * Class ApiCtrl
+ * Class Api Controller
  *
  * Controller for registering custom REST API endpoints.
  *
  * @since 0.1.0
  */
-class ApiCtrl {
+class Controller {
 
     /**
      * Class dir and class name mapping.

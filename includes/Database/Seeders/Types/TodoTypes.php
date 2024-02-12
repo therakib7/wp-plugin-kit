@@ -9,6 +9,8 @@ use WpPluginKit\Helpers\Keys;
  * TodoType Seeder class.
  *
  * Seed some fresh todo types for initial startup.
+ *
+ * @since 0.1.0
  */
 class TodoTypes extends DBSeeder {
 

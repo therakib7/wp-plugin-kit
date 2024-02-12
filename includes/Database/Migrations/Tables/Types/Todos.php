@@ -3,10 +3,11 @@
 namespace WpPluginKit\Database\Migrations\Tables\Types;
 
 use WpPluginKit\Abstracts\DBMigrator;
-use WpPluginKit\Helpers\Keys;
 
 /**
  * Todos migration.
+ *
+ * @since 0.1.0
  */
 class Todos extends DBMigrator {
 

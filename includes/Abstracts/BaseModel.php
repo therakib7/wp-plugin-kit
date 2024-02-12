@@ -2,7 +2,7 @@
 
 namespace WpPluginKit\Abstracts;
 
-use WpPluginKit\Traits\InputSanitizer;
+use WpPluginKit\Traits\Sanitizer;
 use WpPluginKit\Traits\Queryable;
 
 /**
@@ -13,7 +13,7 @@ use WpPluginKit\Traits\Queryable;
 abstract class BaseModel {
 
     use Queryable;
-    use InputSanitizer;
+    use Sanitizer;
 
     /**
      * @var $db

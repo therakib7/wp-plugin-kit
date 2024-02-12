@@ -1,5 +1,5 @@
 <?php
-namespace WpPluginKit\Controllers\Api\Types;
+namespace WpPluginKit\Api\Types;
 
 use WpPluginKit\Abstracts\RestApi;
 

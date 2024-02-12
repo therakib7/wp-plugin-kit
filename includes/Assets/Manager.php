@@ -1,13 +1,15 @@
 <?php
 
-namespace WpPluginKit\Controllers\Asset;
+namespace WpPluginKit\Assets;
 
 /**
- * AssetCtrl class.
+ * Asset Manager class.
  *
  * Responsible for managing all of the assets (CSS, JS, Images, Locales).
+ * 
+ * @since 0.1.0
  */
-class AssetCtrl {
+class Manager {
 
     /**
      * Constructor.
