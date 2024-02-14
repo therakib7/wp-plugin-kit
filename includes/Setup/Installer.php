@@ -13,7 +13,6 @@ use WpPluginKit\Helpers\Keys;
  */
 class Installer {
 
-
     public function __construct() {
         add_action( 'admin_init', [ $this, 'run' ] );
     }
