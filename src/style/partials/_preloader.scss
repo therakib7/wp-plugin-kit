@@ -1,0 +1,31 @@
+// preloader
+.wp-plugin-kit-preloader {
+	padding: 50px;
+	position: relative;
+	text-align: center;
+}
+
+.wp-plugin-kit-preloader:before {
+	content: "";
+	height: 40px;
+	width: 40px;
+	margin: -15px auto auto -15px;
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #2180c0 #ccc #ccc;
+	border-radius: 100%;
+	animation: wp-plugin-kit-rotation 0.7s infinite linear;
+}
+
+@keyframes ozop-rotation {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(359deg);
+	}
+}

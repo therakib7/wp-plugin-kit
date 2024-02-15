@@ -1,0 +1,35 @@
+.ozopanel {
+	.ozop-tab-list {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		background-color: #f2f2f2;
+
+		.ozop-tab-item {
+			padding: 10px 20px;
+			border-bottom: 2px solid transparent;
+			transition: border-bottom 0.3s ease;
+			cursor: pointer;
+			background-color: #e6e6e6;
+
+			a {
+				text-decoration: none;
+				color: #333;
+			}
+
+			&:hover {
+				a {
+					color: #007bff;
+				}
+			}
+		}
+
+		.ozop-active.ozop-tab-item {
+			border-bottom-color: #007bff;
+
+			a {
+				color: #007bff;
+			}
+		}
+	}
+}

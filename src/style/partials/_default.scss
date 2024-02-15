@@ -1,0 +1,17 @@
+.wp-admin.wp-plugin-kit {
+	background-color: #f3f4f6;
+
+	#wpcontent {
+		margin-left: 140px;
+	}
+
+	.Toastify__toast-container.Toastify__toast-container--top-right {
+		top: 3em;
+	}
+}
+
+.wp-admin.wp-plugin-kit.folded {
+	#wpcontent {
+		margin-left: 16px;
+	}
+}
