@@ -21,6 +21,7 @@
         position: sticky;
         top: 32px;
         z-index: 9989;
+        padding: 0 20px;
         background-color: #fff;
         box-shadow: 0px 1px 2px 0px rgba(16, 39, 68, 0.08);
 
@@ -42,6 +43,11 @@
     .wp-plugin-kit-content {
         max-width: 1020px;
         margin: auto;
-        margin-top: 50px;
+        margin-top: 30px;
+    }
+
+    .wp-plugin-kit-settings {
+        max-width: 340px;
+        margin: auto;
     }
 }

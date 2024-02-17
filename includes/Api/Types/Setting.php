@@ -1,8 +1,9 @@
 <?php
 
-namespace WpPluginKit\Api\Types;
+namespace Therakib7\WpPluginKit\Api\Types;
 
-use WpPluginKit\Abstracts\RestApi;
+use Therakib7\WpPluginKit\Abstracts\RestApi;
+use Therakib7\WpPluginKit\Helpers\Keys;
 
 /**
  * API Setting class.
@@ -11,6 +12,7 @@ use WpPluginKit\Abstracts\RestApi;
  */
 
 class Setting extends RestApi {
+
 
     /**
      * Route base.
@@ -31,7 +33,8 @@ class Setting extends RestApi {
 
     public function routes() {
         register_rest_route(
-            $this->namespace, '/' . $this->base,
+            $this->namespace,
+            '/' . $this->base,
             [
                 'methods' => 'GET',
                 'callback' => [ $this, 'get' ],
@@ -40,7 +43,8 @@ class Setting extends RestApi {
         );
 
         register_rest_route(
-            $this->namespace, '/' . $this->base,
+            $this->namespace,
+            '/' . $this->base,
             [
                 'methods' => 'POST',
                 'callback' => [ $this, 'create' ],
@@ -74,28 +78,32 @@ class Setting extends RestApi {
         if ( $wp_err->get_error_messages() ) {
             return new \WP_REST_Response(
                 [
-					'success'  => false,
-					'data' => $wp_err->get_error_messages(),
-                ], 200
+                    'success'  => false,
+                    'data' => $wp_err->get_error_messages(),
+                ],
+                200
             );
         } else {
-            $data = [];
+            $settings = [];
 
-            if ( $tab === 'test_tab' ) {
-                $option = get_option( 'wp_plugin_kit_' . $tab );
+            if ( $tab === 'general' ) {
+                $option = get_option( Keys::SETTINGS . $tab );
 
                 if ( $option ) {
-                    $data = $option;
+                    $settings = $option;
                 } else {
-                    $data['status'] = false;
+                    $settings['layout'] = 'one';
+                    $settings['position'] = 'top';
+                    $settings['close_after'] = '3';
                 }
             }
 
             return new \WP_REST_Response(
                 [
-					'success'  => true,
-					'data' => $data,
-                ], 200
+                    'success'  => true,
+                    'data' => [ 'form' => $settings ],
+                ],
+                200
             );
         }
     }
@@ -125,27 +133,60 @@ class Setting extends RestApi {
         if ( $wp_err->get_error_messages() ) {
             return new \WP_REST_Response(
                 [
-					'success'  => false,
-					'data' => $wp_err->get_error_messages(),
-                ], 200
+                    'success'  => false,
+                    'data' => $wp_err->get_error_messages(),
+                ],
+                200
             );
         } else {
-            $data = [];
+            $settings = [];
 
-            if ( $tab === 'test' ) {
-                $data['status'] = isset( $param['status'] )
-                    ? rest_sanitize_boolean( $param['status'] )
-                    : null;
+            if ( $tab === 'general' ) {
+                if ( isset( $param['close_after'] ) && empty( $param['close_after'] ) ) {
+                    $wp_err->add(
+                        'field',
+                        esc_html__( 'Close after is missing', 'wp-plugin-kit' )
+                    );
+                }
 
-                $option = update_option( 'wp_plugin_kit_' . $tab, $data );
+                if ( isset( $param['display_condition'] ) && empty( $param['display_condition'] ) ) {
+                    $wp_err->add(
+                        'field',
+                        esc_html__( 'Display condition is missing', 'wp-plugin-kit' )
+                    );
+                }
+
+                if ( $wp_err->get_error_messages() ) {
+                    return new \WP_REST_Response(
+                        [
+                            'success'  => false,
+                            'data' => $wp_err->get_error_messages(),
+                        ],
+                        200
+                    );
+                } else {
+                    $settings = [];
+
+                    $settings['layout'] = isset( $param['layout'] )
+                        ? $this->input_sanitize( $param['layout'] )
+                        : 'one';
+                    $settings['position'] = isset( $param['position'] )
+                        ? $this->input_sanitize( $param['position'] )
+                        : 'one';
+                    $settings['close_after'] = isset( $param['close_after'] )
+                        ? $this->input_sanitize( $param['close_after'] )
+                        : 'one';
+
+                    update_option( Keys::SETTINGS . $tab, $settings );
+
+                    return new \WP_REST_Response(
+                        [
+                            'success'  => true,
+                        ],
+                        200
+                    );
+                }
             }
-
-            return new \WP_REST_Response(
-                [
-					'success'  => true,
-					'data' => null,
-                ], 200
-            );
         }
     }
 }

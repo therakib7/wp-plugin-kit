@@ -1,7 +1,8 @@
 <?php
 
-namespace WpPluginKit\Abstracts;
+namespace Therakib7\WpPluginKit\Abstracts;
 
+use Therakib7\WpPluginKit\Traits\Sanitizer;
 use WP_Error;
 use WP_REST_Controller;
 
@@ -12,6 +13,7 @@ use WP_REST_Controller;
  */
 abstract class RestApi extends WP_REST_Controller {
 
+    use Sanitizer;
 
     /**
      * Endpoint namespace.

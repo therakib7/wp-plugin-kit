@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Database\Migrations\Tables\Types;
+namespace Therakib7\WpPluginKit\Database\Migrations\Tables\Types;
 
-use WpPluginKit\Abstracts\DBMigrator;
+use Therakib7\WpPluginKit\Abstracts\DBMigrator;
 
 /**
  * Todos migration.

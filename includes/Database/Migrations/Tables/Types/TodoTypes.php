@@ -1,9 +1,9 @@
 <?php
 
-namespace WpPluginKit\Database\Migrations\Tables\Types;
+namespace Therakib7\WpPluginKit\Database\Migrations\Tables\Types;
 
-use WpPluginKit\Abstracts\DBMigrator;
-use WpPluginKit\Helpers\Keys;
+use Therakib7\WpPluginKit\Abstracts\DBMigrator;
+use Therakib7\WpPluginKit\Helpers\Keys;
 
 /**
  * TodoTypes migration.

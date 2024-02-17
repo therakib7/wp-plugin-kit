@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Api;
+namespace Therakib7\WpPluginKit\Api;
 
-use WpPluginKit\Api\Types\{
+use Therakib7\WpPluginKit\Api\Types\{
     Todo,
     Setting,
 };

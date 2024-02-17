@@ -2,7 +2,7 @@
 	"name": "therakib7/wp-plugin-kit",
 	"description": "A starter plugin for WordPress that provides a foundational structure to build upon.",
 	"version": "0.1.0",
-	"license": "GPL-3-or-later",
+	"license": "GPL-3.0",
 	"authors": [
 		{
 			"name": "WpPluginKit",
@@ -14,15 +14,14 @@
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.0",
-		"tareq1988/wp-php-cs-fixer": "dev-master",
 		"phpcompatibility/phpcompatibility-wp": "dev-master",
 		"wp-phpunit/wp-phpunit": "dev-master",
 		"yoast/phpunit-polyfills": "^1.0"
 	},
 	"autoload": {
 		"psr-4": {
-			"WpPluginKit\\": "includes",
-			"WpPluginKit\\Tests\\": "tests/phpunit"
+			"Therakib7\\WpPluginKit\\": "includes/",
+			"Therakib7\\WpPluginKit\\Tests\\": "tests/phpunit/"
 		}
 	},
 	"scripts": {

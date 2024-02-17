@@ -19,7 +19,7 @@
  * Tested up to:      6.4
  * Text Domain:       wp-plugin-kit
  * Domain Path:       /languages
- * License: GPL3
+ * License: GPL3.0
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
 
@@ -195,12 +195,13 @@ final class WpPluginKit {
      */
     public function includes() {
         if ( $this->is_request( 'admin' ) ) {
-            $this->container['installer'] = new WpPluginKit\Setup\Installer();
-            $this->container['admin_menu'] = new WpPluginKit\Admin\Menu();
+            $this->container['installer'] = new Therakib7\WpPluginKit\Setup\Installer();
+            $this->container['admin_menu'] = new Therakib7\WpPluginKit\Admin\Menu();
         }
 
-        $this->container['assets']   = new WpPluginKit\Assets\Manager();
-        $this->container['rest_api'] = new WpPluginKit\Api\Controller();
+        $this->container['assets']   = new Therakib7\WpPluginKit\Assets\Manager();
+        $this->container['rest_api'] = new Therakib7\WpPluginKit\Api\Controller();
+        $this->container['hooks'] = new Therakib7\WpPluginKit\Hooks\Manager();
     }
 
 	/**

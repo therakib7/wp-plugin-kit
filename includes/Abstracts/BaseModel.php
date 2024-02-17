@@ -1,9 +1,9 @@
 <?php
 
-namespace WpPluginKit\Abstracts;
+namespace Therakib7\WpPluginKit\Abstracts;
 
-use WpPluginKit\Traits\Sanitizer;
-use WpPluginKit\Traits\Queryable;
+use Therakib7\WpPluginKit\Traits\Sanitizer;
+use Therakib7\WpPluginKit\Traits\Queryable;
 
 /**
  * Base model class.

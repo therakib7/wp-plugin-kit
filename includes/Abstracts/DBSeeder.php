@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Abstracts;
+namespace Therakib7\WpPluginKit\Abstracts;
 
 /**
  * Abstract class to handle the seeder classes.

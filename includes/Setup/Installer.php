@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Setup;
+namespace Therakib7\WpPluginKit\Setup;
 
-use WpPluginKit\Helpers\Keys;
+use Therakib7\WpPluginKit\Helpers\Keys;
 
 /**
  * Class Installer.
@@ -61,7 +61,7 @@ class Installer {
      */
     public function run_migrations() {
         // Run the database migrations.
-        $migration = new \WpPluginKit\Database\Migrations\Tables\Manager();
+        $migration = new \Therakib7\WpPluginKit\Database\Migrations\Tables\Manager();
         $migration->run();
     }
 
@@ -74,7 +74,7 @@ class Installer {
      */
     public function run_seeders() {
         // Run the database seeders.
-        $seeder = new \WpPluginKit\Database\Seeders\Manager();
+        $seeder = new \Therakib7\WpPluginKit\Database\Seeders\Manager();
         $seeder->run();
     }
 }

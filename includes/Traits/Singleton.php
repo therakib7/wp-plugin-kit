@@ -1,5 +1,5 @@
 <?php
-namespace WpPluginKit\Traits;
+namespace Therakib7\WpPluginKit\Traits;
 
 /**
  * Implements the Singleton Design Pattern.

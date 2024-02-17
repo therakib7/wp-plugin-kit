@@ -1,0 +1,103 @@
+.wp-plugin-kit-submit {
+	@apply rounded-lg bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-blue-300;
+}
+
+.wp-plugin-kit-form {
+	margin: 20px;
+	padding: 20px;
+	border-radius: 5px;
+
+	.wp-plugin-kit-field {
+		margin-bottom: 20px;
+
+		>label {
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		&-img-switch {
+			display: flex;
+			gap: 15px;
+
+			button {
+				border: none;
+				background: none;
+				padding: 0;
+				cursor: pointer;
+				border: 4px solid transparent;
+
+				img {
+					max-width: 100%;
+					height: auto;
+				}
+
+				&.selected {
+					border: 4px solid #3858e9;
+				}
+			}
+		}
+
+		&-button-switch {
+			border: 1px solid #ccc;
+			display: flex;
+
+			button {
+				width: 100%;
+				padding: 10px 20px;
+				cursor: pointer;
+
+				&.selected {
+					// Styles for selected button
+					background-color: #3858e9;
+					color: white;
+				}
+			}
+		}
+
+		&-range {
+			display: flex;
+			align-items: center;
+
+			.range-slider {
+				width: calc(66.67% - 10px);
+				margin-right: 10px;
+				appearance: none;
+				height: 10px;
+				background: #ccc;
+				border-radius: 5px;
+				outline: none;
+
+				&::-webkit-slider-thumb {
+					appearance: none;
+					width: 20px;
+					height: 20px;
+					background: #3858e9;
+					border-radius: 50%;
+					cursor: pointer;
+				}
+			}
+
+			input[type="number"] {
+				width: calc(33.33%);
+				padding: 5px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+			}
+		}
+
+		&-checkboxes {
+			margin-top: 10px;
+
+			label {
+				input {
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}

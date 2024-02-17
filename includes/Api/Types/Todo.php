@@ -1,7 +1,7 @@
 <?php
-namespace WpPluginKit\Api\Types;
+namespace Therakib7\WpPluginKit\Api\Types;
 
-use WpPluginKit\Abstracts\RestApi;
+use Therakib7\WpPluginKit\Abstracts\RestApi;
 
 /**
  * API Todo class.

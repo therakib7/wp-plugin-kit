@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Admin;
+namespace Therakib7\WpPluginKit\Admin;
 
 /**
  * Admin Menu class.
@@ -33,10 +33,10 @@ class Menu {
 
         add_submenu_page(
             $slug,
-            esc_html__( 'Todos', 'wp-plugin-kit' ),
-            esc_html__( 'Todos', 'wp-plugin-kit' ),
+            esc_html__( 'Products', 'wp-plugin-kit' ),
+            esc_html__( 'Products', 'wp-plugin-kit' ),
             $capability,
-            $slug . '#/todos',
+            $slug . '#/products',
             [ $this, 'render' ]
         );
 

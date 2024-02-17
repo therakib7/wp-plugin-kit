@@ -1,9 +1,9 @@
 <?php
 
-namespace WpPluginKit\Database\Seeders\Types;
+namespace Therakib7\WpPluginKit\Database\Seeders\Types;
 
-use WpPluginKit\Abstracts\DBSeeder;
-use WpPluginKit\Helpers\Keys;
+use Therakib7\WpPluginKit\Abstracts\DBSeeder;
+use Therakib7\WpPluginKit\Helpers\Keys;
 
 /**
  * TodoType Seeder class.

@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Models;
+namespace Therakib7\WpPluginKit\Models;
 
 /**
  * Todo model

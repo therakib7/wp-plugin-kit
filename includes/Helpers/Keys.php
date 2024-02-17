@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Helpers;
+namespace Therakib7\WpPluginKit\Helpers;
 
 /**
  * Manage all key strings.
@@ -35,6 +35,15 @@ class Keys {
      * @since 0.1.0
      */
     const VERSION = self::PREFIX . 'version';
+
+    /**
+     * WpPluginKit installed option key.
+     *
+     * @var string
+     *
+     * @since 0.1.0
+     */
+    const SETTINGS = self::PREFIX . 'settings_';
 
     /**
      * Migrations ran key.

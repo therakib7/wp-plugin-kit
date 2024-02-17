@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Database\Seeders\Types;
+namespace Therakib7\WpPluginKit\Database\Seeders\Types;
 
-use WpPluginKit\Abstracts\DBSeeder;
+use Therakib7\WpPluginKit\Abstracts\DBSeeder;
 
 /**
  * Todos Seeder class.

@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Assets;
+namespace Therakib7\WpPluginKit\Assets;
 
 /**
  * Asset Manager class.
@@ -42,7 +42,7 @@ class Manager {
      */
     public function get_styles(): array {
         return [
-            'wp-plugin-kit' => [
+            'wp-plugin-kit-app' => [
                 'src'     => WP_PLUGIN_KIT_BUILD . '/index.css',
                 'version' => WP_PLUGIN_KIT_VERSION,
                 'deps'    => [],
@@ -61,7 +61,7 @@ class Manager {
         $dependency = require_once WP_PLUGIN_KIT_DIR . '/build/index.asset.php';
 
         return [
-            'wp-plugin-kit' => [
+            'wp-plugin-kit-app' => [
                 'src'       => WP_PLUGIN_KIT_BUILD . '/index.js',
                 'version'   => $dependency['version'],
                 'deps'      => $dependency['dependencies'],
@@ -111,7 +111,7 @@ class Manager {
             return;
         }
 
-        wp_enqueue_style( 'wp-plugin-kit' );
-        wp_enqueue_script( 'wp-plugin-kit' );
+        wp_enqueue_style( 'wp-plugin-kit-app' );
+        wp_enqueue_script( 'wp-plugin-kit-app' );
     }
 }

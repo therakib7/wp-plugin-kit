@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Traits;
+namespace Therakib7\WpPluginKit\Traits;
 
 /**
  * Queryable trait.

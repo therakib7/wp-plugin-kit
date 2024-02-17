@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Database\Seeders;
+namespace Therakib7\WpPluginKit\Database\Seeders;
 
-use WpPluginKit\Database\Seeders\Types\{
+use Therakib7\WpPluginKit\Database\Seeders\Types\{
     Todos,
     TodoTypes
 };

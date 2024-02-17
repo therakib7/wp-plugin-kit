@@ -1,14 +1,10 @@
 /**
- * Main settings panel
- * @since 0.1.0
- */
-
-/**
  * External dependencies
  */
-import { FC, MouseEvent } from 'react';
-import { lazy, Suspense, useState } from '@wordpress/element';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useReducer, useEffect } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 
 /**
  * Internal dependencies
@@ -16,84 +12,189 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Spinner from '@components/preloader/spinner';
 import Topbar from '@components/topbar';
 import PageContent from '@components/page-content';
-const General = lazy(() => import('./tab/General'));
-const Other = lazy(() => import('./tab/Other'));
-import './_style.scss';
+import { get, add } from '@utils/api';
+import { reducer, initState } from './reducer';
 
-const i18n = ozopanel.i18n;
+/**
+ * Settings
+ *
+ * @since 0.1.0
+ */
+const Settings = () => {
+	const queryClient = useQueryClient();
+	const [state, dispatch] = useReducer(reducer, initState);
+	const { loading, saving, form } = state;
 
-interface TabItem {
-	id: string;
-	label: string;
-	icon: string;
-	component: FC;
-}
+	const { data, isLoading } = useQuery({
+		queryKey: ['settings'],
+		queryFn: () => get('settings', 'tab=general'),
+	});
 
-const tabs: TabItem[] = [
-	{
-		id: 'general',
-		label: i18n.general,
-		icon: '',
-		component: General,
-	},
-	{
-		id: 'other',
-		label: i18n.other,
-		icon: '',
-		component: Other,
-	},
-];
+	useEffect(() => {
+		if (data) {
+			const { form } = data;
+			dispatch({ type: 'set_form', payload: form });
+		}
+	}, [data]);
 
-const Settings: FC = () => {
-	const { tab = 'general' } = useParams();
-	const navigate = useNavigate();
+	useEffect(() => {
+		dispatch({ type: 'set_loading', payload: isLoading });
+	}, [isLoading]);
 
-	const [activeTab, setActiveTab] = useState<string>(tab);
+	const submitMutation = useMutation({
+		mutationFn: () => add('settings', { ...form, tab: 'general' }),
+		onSuccess: () => {
+			toast.success(__('Successfully Changed', 'wp-plugin-kit'));
+			queryClient.invalidateQueries({ queryKey: ['settings'] });
+			dispatch({ type: 'set_saving', payload: false });
+		},
+		onError: () => {
+			dispatch({ type: 'set_saving', payload: false });
+		},
+	});
 
-	const addCurrentTab = (e: MouseEvent<HTMLElement>, tab: string) => {
-		e.preventDefault();
-		setActiveTab(tab);
-		navigate(`/settings/${tab}`);
+	const handleChange = (e: any) => {
+		const { name, value } = e.target;
+		dispatch({ type: 'set_form', payload: { ...form, [name]: value } });
 	};
 
-	const ActiveComponent = tabs.find((tab) => tab.id === activeTab)?.component;
+	const handleChangeSwitch = (name: string, value: string) => {
+		dispatch({ type: 'set_form', payload: { ...form, [name]: value } });
+	};
 
-	const loading = false;
+	const handleSubmit = async () => {
+		dispatch({ type: 'set_saving', payload: true });
+		submitMutation.mutate();
+	};
 
 	return (
 		<>
-			<Topbar label={i18n.settings}>
-				{!loading && <>
+			<Topbar
+				label={__(
+					'Settings',
+					'wp-plugin-kit'
+				)}
+			>
+				{!loading && (
 					<button
-						// onClick={handleSubmit}
-						className="ozop-submit"
+						onClick={handleSubmit}
+						className="wp-plugin-kit-submit"
+						disabled={saving}
 					>
-						{i18n.saveChanges}
+						{__('Save Changes', 'wp-plugin-kit')}
 					</button>
-				</>}
+				)}
 			</Topbar>
 
 			<PageContent>
-				<div className="ozop-settings">
-					<ul className="ozop-tab-list">
-						{tabs.map((tab) => (
-							<li
-								key={tab.id}
-								className={`ozop-tab-item ${tab.id === activeTab ? 'ozop-active' : ''
-									}`}
-								onClick={(e) => addCurrentTab(e, tab.id)}
-							>
-								<a>{tab.label}</a>
-							</li>
-						))}
-					</ul>
+				{loading && <Spinner />}
 
-					<div className="ozop-tab-content">
-						<Suspense fallback={<Spinner />}>
-							{ActiveComponent && <ActiveComponent />}
-						</Suspense>
+				{!loading && (
+					<div className="wp-plugin-kit-settings wp-plugin-kit-form">
+						<div className="wp-plugin-kit-field">
+							<label>{__('Layout', 'wp-plugin-kit')}</label>
+							<div className="wp-plugin-kit-field-img-switch">
+								<button
+									type="button"
+									name="layout"
+									value="one"
+									onClick={() =>
+										handleChangeSwitch('layout', 'one')
+									}
+									className={
+										form.layout === 'one' ? 'selected' : ''
+									}
+								>
+									<img
+										src="https://img001.prntscr.com/file/img001/xzSPRQrWTLW_xokXWqQQJA.png"
+										alt="Layout One"
+									/>
+								</button>
+								<button
+									type="button"
+									name="layout"
+									value="two"
+									onClick={() =>
+										handleChangeSwitch('layout', 'two')
+									}
+									className={
+										form.layout === 'two' ? 'selected' : ''
+									}
+								>
+									<img
+										src="https://img001.prntscr.com/file/img001/Kc9YjGlaRRqiAIYdXoVY6Q.png"
+										alt="Layout Two"
+									/>
+								</button>
+							</div>
+						</div>
+
+						<div className="wp-plugin-kit-field">
+							<label>{__('Position', 'wp-plugin-kit')}</label>
+							<div className="wp-plugin-kit-field-button-switch">
+								<button
+									type="button"
+									name="position"
+									value="top"
+									onClick={handleChange}
+									className={
+										form.position === 'top'
+											? 'selected'
+											: ''
+									}
+								>
+									{__('Top', 'wp-plugin-kit')}
+								</button>
+								<button
+									type="button"
+									name="position"
+									value="bottom"
+									onClick={handleChange}
+									className={
+										form.position === 'bottom'
+											? 'selected'
+											: ''
+									}
+								>
+									{__('Bottom', 'wp-plugin-kit')}
+								</button>
+							</div>
+						</div>
+
+						<div className="wp-plugin-kit-field">
+							<label>
+								{__(
+									'Close After (Seconds)',
+									'wp-plugin-kit'
+								)}
+							</label>
+							<div className="wp-plugin-kit-field-range">
+								<input
+									type="range"
+									min="1"
+									max="20"
+									name="close_after"
+									value={form.close_after}
+									onChange={handleChange}
+									className="range-slider"
+									style={{
+										background: `linear-gradient(to right, #3264fe ${(form.close_after / 20) * 100
+											}%, #ccd6ff ${(form.close_after / 20) * 100
+											}%)`,
+									}}
+								/>
+								<input
+									type="number"
+									min="1"
+									max="20"
+									name="close_after"
+									value={form.close_after}
+									onChange={handleChange}
+								/>
+							</div>
+						</div>
 					</div>
-				</div>
+				)}
 			</PageContent>
 		</>
 	);

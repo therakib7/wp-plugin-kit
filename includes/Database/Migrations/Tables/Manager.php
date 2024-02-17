@@ -1,8 +1,8 @@
 <?php
 
-namespace WpPluginKit\Database\Migrations\Tables;
+namespace Therakib7\WpPluginKit\Database\Migrations\Tables;
 
-use WpPluginKit\Database\Migrations\Tables\Types\{
+use Therakib7\WpPluginKit\Database\Migrations\Tables\Types\{
     Todos,
     TodoTypes
 };

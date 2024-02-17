@@ -32,7 +32,7 @@ module.exports = {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 			'@assets': path.resolve(__dirname, './src/assets'),
-			'@style': path.resolve(__dirname, './src/style'),
+			'@styles': path.resolve(__dirname, './src/styles'),
 			'@utils': path.resolve(__dirname, './src/utils'),
 			'@data': path.resolve(__dirname, './src/data'),
 			'@interfaces': path.resolve(__dirname, './src/interfaces'),

@@ -1,5 +1,5 @@
 <?php
-namespace WpPluginKit\Helpers;
+namespace Therakib7\WpPluginKit\Helpers;
 
 /**
  * Helper functions

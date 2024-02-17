@@ -1,6 +1,6 @@
 <?php
 
-namespace WpPluginKit\Abstracts;
+namespace Therakib7\WpPluginKit\Abstracts;
 
 /**
  * Database migration class.
