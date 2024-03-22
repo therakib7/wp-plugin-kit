@@ -2,9 +2,9 @@
  * External dependencies
  */
 import { useReducer, useEffect } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies

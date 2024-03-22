@@ -17,6 +17,7 @@ import { queryClient } from '@utils/react-query';
 import '@data/store';
 import App from './App';
 import '@styles/main.scss';
+import '@utils/admin-menu';
 
 const rootElement = document.getElementById('wp-plugin-kit');
 if (rootElement) {

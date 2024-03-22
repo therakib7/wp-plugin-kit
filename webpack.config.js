@@ -1,5 +1,7 @@
 const defaults = require('@wordpress/scripts/config/webpack.config');
 const { getWebpackEntryPoints } = require('@wordpress/scripts/utils/config');
+const I18nLoaderWebpackPlugin = require('@automattic/i18n-loader-webpack-plugin');
+
 const path = require('path');
 const config = { ...defaults };
 
@@ -26,8 +28,16 @@ module.exports = {
 	...config,
 	entry: {
 		...getWebpackEntryPoints(), // For blocks.
-		index: './src/index.tsx'
+		'i18n-loader': './tools/i18n-loader.ts',
+		index: './src/index.tsx' // For admin scripts.
 	},
+	plugins: [
+		...defaults.plugins,
+		new I18nLoaderWebpackPlugin({
+			textdomain: 'wp-plugin-kit',
+			loaderModule: 'wpPluginKitI18nLoader',
+		}),
+	],
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
@@ -41,5 +51,8 @@ module.exports = {
 			'@pages': path.resolve(__dirname, './src/pages'),
 		},
 		extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+	},
+	externals: {
+		wpPluginKitI18nLoader: ['window', 'wpPluginKitI18nLoader'],
 	},
 };

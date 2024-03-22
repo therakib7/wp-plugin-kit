@@ -7,12 +7,13 @@
 /**
  * External dependencies
  */
+import { lazy } from '@wordpress/element';
 import { createHashRouter } from 'react-router-dom';
 
 /**
  * Internal dependencies
  */
-import Settings from '@pages/settings';
+const Settings = lazy(() => import('@pages/settings'));
 import NotFound from '@pages/404';
 
 const Router = createHashRouter([

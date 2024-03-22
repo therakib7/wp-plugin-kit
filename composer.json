@@ -28,7 +28,7 @@
 		"phpcs": [
 			"phpcs -ps"
 		],
-		"phpcbf": [
+		"phpcs:fix": [
 			"phpcbf -p"
 		],
 		"test": [
