@@ -3,15 +3,16 @@
 namespace Therakib7\WpPluginKit\Database\Seeders\Types;
 
 use Therakib7\WpPluginKit\Abstracts\DBSeeder;
+use Therakib7\WpPluginKit\Helpers\Keys;
 
 /**
- * Todos Seeder class.
+ * Products Seeder class.
  *
  * Seed some fresh emails for initial startup.
  *
  * @since 0.1.0
  */
-class Todos extends DBSeeder {
+class Products extends DBSeeder {
 
     /**
      * Name of seeder table.
@@ -20,10 +21,10 @@ class Todos extends DBSeeder {
      *
      * @since 0.1.0
      */
-    protected $table_name = 'todos';
+    protected static $table_name = 'products';
 
     /**
-     * Run Todos seeder.
+     * Run Products seeder.
      *
      * @since 0.1.0
      *
@@ -32,23 +33,27 @@ class Todos extends DBSeeder {
     public function run() {
         global $wpdb;
 
-        // Generate some todos.
-        $todos = [
+        // Generate some products.
+        $products = [
             [
-                'title'       => 'First Test Task',
-                'slug'        => 'first-test-task',
-                'description' => 'This is a simple task.',
+                'title'       => 'Test Product',
+                'slug'        => 'test-product',
+                'description' => 'This is a test product.',
                 'created_by'  => get_current_user_id(),
                 'created_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
                 'updated_at'  => current_datetime()->format( 'Y-m-d H:i:s' ),
             ],
         ];
 
-        // Create each of the todos.
-        foreach ( $todos as $todo ) {
+        // Create each of the products.
+        $prefix = Keys::PREFIX;
+
+        $table_name_with_prefix = "{$wpdb->prefix}{$prefix}" . self::$table_name;
+
+        foreach ($products as $product) {
             $wpdb->insert(
-                $wpdb->prefix . 'wp_plugin_kit_todos',
-                $todo
+                $table_name_with_prefix,
+                $product
             );
         }
     }

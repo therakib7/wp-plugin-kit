@@ -14,7 +14,7 @@ abstract class DBSeeder {
      *
      * @var string
      */
-    protected $table_name = '';
+    protected static $table_name = '';
 
     /**
      * Run the seeders of the database.

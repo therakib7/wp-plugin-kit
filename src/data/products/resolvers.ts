@@ -29,22 +29,22 @@ const resolvers = {
         const response: IResponse = yield actions.fetchFromAPIUnparsed(
             `${endpoint}?${queryParam}`
         );
-        let totalPage = 0;
+        let totalPages = 0;
         let totalCount = 0;
 
         if (response.headers !== undefined) {
-            totalPage = response.headers.get('X-WP-TotalPages');
+            totalPages = response.headers.get('X-WP-TotalPages');
             totalCount = response.headers.get('X-WP-Total');
         }
 
         yield actions.setItems(response.data);
-        yield actions.setTotalPage(totalPage);
-        yield actions.setTotal(totalCount);
-        return actions.setLoading(false);
+        yield actions.setTotalPages(totalPages);
+        yield actions.setTotalItems(totalCount);
+        return actions.setIsLoading(false);
     },
 
     *getItemDetail(id: number) {
-        yield actions.setLoading(true);
+        yield actions.setIsLoading(true);
         const path = `${endpoint}/${id}`;
         const response = yield actions.fetchFromAPI(path);
 
@@ -54,18 +54,8 @@ const resolvers = {
             yield actions.setFormData(data);
         }
 
-        return actions.setLoading(false);
+        return actions.setIsLoading(false);
     },
-
-    *getItemTypes() {
-        const response: IResponse = yield actions.fetchFromAPIUnparsed(
-            typesEndpoint
-        );
-
-        const types: Array<IItemTypes> = response.data;
-
-        // yield actions.setTypes(formatSelect2Data(types));
-    }
 };
 
 export default resolvers;

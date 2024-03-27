@@ -18,28 +18,22 @@ const reducer = (state = defaultState, action: any) => {
                 item: action.item,
             };
 
-        case Types.GET_ITEM_TYPES:
+        case Types.SET_IS_LOADING:
             return {
                 ...state,
-                types: action.types,
+                isLoading: action.isLoading,
             };
 
-        case Types.SET_LOADING:
-            return {
-                ...state,
-                loading: action.loading,
-            };
-
-        case Types.SET_TOTAL:
+        case Types.SET_TOTAL_ITEMS:
             return {
                 ...state,
                 total: action.total,
             };
 
-        case Types.SET_TOTAL_PAGE:
+        case Types.SET_TOTAL_PAGES:
             return {
                 ...state,
-                totalPage: action.totalPage,
+                totalPages: action.totalPages,
             };
 
         case Types.SET_FILTER:
@@ -54,10 +48,10 @@ const reducer = (state = defaultState, action: any) => {
                 form: action.form,
             };
 
-        case Types.SET_SAVING:
+        case Types.SET_IS_SAVING:
             return {
                 ...state,
-                saving: action.saving,
+                isSaving: action.isSaving,
             };
     }
 

@@ -13,7 +13,7 @@ import Spinner from '@components/preloader/spinner';
 import Topbar from '@components/topbar';
 import PageContent from '@components/page-content';
 import { get, add } from '@utils/api';
-import { reducer, initState } from './reducer';
+import { reducer, initialState } from './reducer';
 
 /**
  * Settings
@@ -22,8 +22,8 @@ import { reducer, initState } from './reducer';
  */
 const Settings = () => {
 	const queryClient = useQueryClient();
-	const [state, dispatch] = useReducer(reducer, initState);
-	const { loading, saving, form } = state;
+	const [state, dispatch] = useReducer(reducer, initialState);
+	const { isLoading, isSaving, form } = state;
 
 	const { data, isLoading } = useQuery({
 		queryKey: ['settings'],
@@ -38,7 +38,7 @@ const Settings = () => {
 	}, [data]);
 
 	useEffect(() => {
-		dispatch({ type: 'set_loading', payload: isLoading });
+		dispatch({ type: 'set_isLoading', payload: isLoading });
 	}, [isLoading]);
 
 	const submitMutation = useMutation({
@@ -46,10 +46,10 @@ const Settings = () => {
 		onSuccess: () => {
 			toast.success(__('Successfully Changed', 'wp-plugin-kit'));
 			queryClient.invalidateQueries({ queryKey: ['settings'] });
-			dispatch({ type: 'set_saving', payload: false });
+			dispatch({ type: 'set_isSaving', payload: false });
 		},
 		onError: () => {
-			dispatch({ type: 'set_saving', payload: false });
+			dispatch({ type: 'set_isSaving', payload: false });
 		},
 	});
 
@@ -63,7 +63,7 @@ const Settings = () => {
 	};
 
 	const handleSubmit = async () => {
-		dispatch({ type: 'set_saving', payload: true });
+		dispatch({ type: 'set_isSaving', payload: true });
 		submitMutation.mutate();
 	};
 
@@ -75,11 +75,11 @@ const Settings = () => {
 					'wp-plugin-kit'
 				)}
 			>
-				{!loading && (
+				{!isLoading && (
 					<button
 						onClick={handleSubmit}
 						className="wp-plugin-kit-submit"
-						disabled={saving}
+						disabled={isSaving}
 					>
 						{__('Save Changes', 'wp-plugin-kit')}
 					</button>
@@ -87,9 +87,9 @@ const Settings = () => {
 			</Topbar>
 
 			<PageContent>
-				{loading && <Spinner />}
+				{isLoading && <Spinner />}
 
-				{!loading && (
+				{!isLoading && (
 					<div className="wp-plugin-kit-settings wp-plugin-kit-form">
 						<div className="wp-plugin-kit-field">
 							<label>{__('Layout', 'wp-plugin-kit')}</label>

@@ -5,7 +5,7 @@ export interface Form {
 }
 
 export interface State {
-	loading: boolean;
-	saving: boolean;
+	isLoading: boolean;
+	isSaving: boolean;
 	form: Form;
 }

@@ -3,8 +3,8 @@
 namespace Therakib7\WpPluginKit\Database\Seeders;
 
 use Therakib7\WpPluginKit\Database\Seeders\Types\{
-    Todos,
-    TodoTypes
+    Products,
+    ProductCategories
 };
 /**
  * Database Seeder class.
@@ -26,8 +26,8 @@ class Manager {
     public function run() {
 
         $seeder_classes = [
-            Todos::class,
-            TodoTypes::class,
+            Products::class,
+            ProductCategories::class,
         ];
 
         foreach ( $seeder_classes as $seeder_class ) {

@@ -14,20 +14,21 @@ interface Types {
     value: string;
 }
 
-import { IItem, IItemForm, IResponse } from '@interfaces';
+import { IResponse } from '@interfaces';
+import { IProduct } from '@interfaces/product';
 import { endpoint } from './endpoint';
 import * as Types from './types';
 import { defaultForm } from './default-state';
 
 const actions = {
-    setItems(items: Array<IItem>) {
+    setItems(items: Array<IProduct>) {
         return {
             type: Types.GET_ITEMS,
             items,
         };
     },
 
-    setItemDetail(item: IItem) {
+    setItemDetail(item: IProduct) {
         return {
             type: Types.GET_ITEM_DETAIL,
             item,
@@ -41,28 +42,28 @@ const actions = {
         };
     },
 
-    setFormData(form: IItemForm) {
+    setFormData(form: IProduct) {
         return {
             type: Types.SET_FORM,
             form,
         };
     },
 
-    setLoading(loading: boolean) {
+    setIsLoading(isLoading: boolean) {
         return {
-            type: Types.SET_LOADING,
-            loading,
+            type: Types.SET_IS_LOADING,
+            isLoading,
         };
     },
 
-    setSaving(saving: boolean) {
+    setIsSaving(isSaving: boolean) {
         return {
-            type: Types.SET_SAVING,
-            saving,
+            type: Types.SET_IS_SAVING,
+            isSaving,
         };
     },
 
-    setDeleting(deleting: boolean) {
+    setIsDeleting(deleting: boolean) {
         return {
             type: Types.SET_DELETING,
             deleting,
@@ -70,7 +71,7 @@ const actions = {
     },
 
     *setFilters(filters = {}) {
-        yield actions.setLoading(true);
+        yield actions.setIsLoading(true);
         yield actions.setFilterObject(filters);
 
         const queryParam = new URLSearchParams(
@@ -83,18 +84,18 @@ const actions = {
             data: any;
         } = yield actions.fetchFromAPIUnparsed(path);
 
-        let totalPage = 0;
+        let totalPages = 0;
         let totalCount = 0;
 
         if (response.headers !== undefined) {
-            totalPage = parseInt(response.headers.get('X-WP-TotalPages'));
+            totalPages = parseInt(response.headers.get('X-WP-TotalPages'));
             totalCount = parseInt(response.headers.get('X-WP-Total'));
         }
 
-        yield actions.setTotalPage(totalPage);
-        yield actions.setTotal(totalCount);
+        yield actions.setTotalPages(totalPages);
+        yield actions.setTotalItems(totalCount);
         yield actions.setItems(response.data);
-        return actions.setLoading(false);
+        return actions.setIsLoading(false);
     },
 
     setFilterObject(filters: object) {
@@ -104,8 +105,8 @@ const actions = {
         };
     },
 
-    *saveItem(payload: IItemForm) {
-        yield actions.setSaving(true);
+    *saveItem(payload: IProduct) {
+        yield actions.setIsSaving(true);
 
         try {
             let response: IResponse = {};
@@ -123,24 +124,24 @@ const actions = {
 
             if (response?.id > 0) {
                 yield actions.setFormData({ ...defaultForm });
-                yield actions.setSaving(false);
+                yield actions.setIsSaving(false);
             }
         } catch (error) {
-            yield actions.setSaving(false);
+            yield actions.setIsSaving(false);
         }
     },
 
-    setTotal(total: number) {
+    setTotalItems(total: number) {
         return {
-            type: Types.SET_TOTAL,
+            type: Types.SET_TOTAL_ITEMS,
             total,
         };
     },
 
-    setTotalPage(totalPage: number) {
+    setTotalPages(totalPages: number) {
         return {
-            type: Types.SET_TOTAL_PAGE,
-            totalPage,
+            type: Types.SET_TOTAL_PAGES,
+            totalPages,
         };
     },
 
@@ -159,7 +160,7 @@ const actions = {
     },
 
     *deleteItems(payload: Array<number>) {
-        yield actions.setDeleting(true);
+        yield actions.setIsDeleting(true);
 
         try {
             const responseDeleteItems: IResponse = yield {
@@ -171,9 +172,9 @@ const actions = {
                 yield actions.setFilters({});
             }
 
-            yield actions.setDeleting(false);
+            yield actions.setIsDeleting(false);
         } catch (error) {
-            yield actions.setDeleting(false);
+            yield actions.setIsDeleting(false);
         }
     },
 };

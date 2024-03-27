@@ -14,5 +14,5 @@ export interface IResponse {
     statusText?: string;
 }
 
-// Todo types
-export * from './todos';
+// Product types
+export * from './crud';

@@ -1,13 +1,13 @@
 import { State, Form } from '@interfaces/settings';
 
 type Action =
-	| { type: 'set_loading'; payload: boolean }
-	| { type: 'set_saving'; payload: boolean }
+	| { type: 'set_isLoading'; payload: boolean }
+	| { type: 'set_isSaving'; payload: boolean }
 	| { type: 'set_form'; payload: Form };
 
-export const initState: State = {
-	loading: false,
-	saving: false,
+export const initialState: State = {
+	isLoading: false,
+	isSaving: false,
 	form: {
 		layout: 'one',
 		position: 'top',
@@ -17,10 +17,10 @@ export const initState: State = {
 
 export const reducer = (state: State, action: Action): State => {
 	switch (action.type) {
-		case 'set_loading':
-			return { ...state, loading: action.payload };
-		case 'set_saving':
-			return { ...state, saving: action.payload };
+		case 'set_isLoading':
+			return { ...state, isLoading: action.payload };
+		case 'set_isSaving':
+			return { ...state, isSaving: action.payload };
 		case 'set_form':
 			return { ...state, form: action.payload };
 		default:

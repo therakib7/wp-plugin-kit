@@ -4,11 +4,11 @@ namespace Therakib7\WpPluginKit\Api\Types;
 use Therakib7\WpPluginKit\Abstracts\RestApi;
 
 /**
- * API Todo class.
+ * API Product class.
  *
  * @since 0.1.0
  */
-class Todo extends RestApi {
+class Product extends RestApi {
 
     /**
      * Route base.
@@ -17,7 +17,7 @@ class Todo extends RestApi {
      *
      * @since 0.1.0
      */
-    protected $base = 'todos';
+    protected $base = 'products';
 
     /**
      * Register all routes related with api.

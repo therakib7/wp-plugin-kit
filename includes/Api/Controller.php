@@ -3,7 +3,7 @@
 namespace Therakib7\WpPluginKit\Api;
 
 use Therakib7\WpPluginKit\Api\Types\{
-    Todo,
+    Product,
     Setting,
 };
 
@@ -39,7 +39,7 @@ class Controller {
         $this->class_map = apply_filters(
             'rakib_rest_api_class_map',
             [
-                Todo::class,
+                Product::class,
                 Setting::class,
             ]
         );

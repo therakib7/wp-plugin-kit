@@ -14,7 +14,7 @@ abstract class DBMigrator {
      *
      * @var string
      */
-    protected $table_name = '';
+    protected static $table_name = '';
 
 	/**
 	 * Migrate the database table.

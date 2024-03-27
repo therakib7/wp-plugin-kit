@@ -3,8 +3,8 @@
 namespace Therakib7\WpPluginKit\Database\Migrations\Tables;
 
 use Therakib7\WpPluginKit\Database\Migrations\Tables\Types\{
-    Todos,
-    TodoTypes
+    Products,
+    ProductCategories
 };
 /**
  * Database Migration class.
@@ -30,8 +30,8 @@ class Manager {
         }
 
         $migration_classes = [
-            Todos::class,
-            TodoTypes::class,
+            Products::class,
+            ProductCategories::class,
         ];
 
         foreach ( $migration_classes as $migration_class ) {

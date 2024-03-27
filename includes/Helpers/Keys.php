@@ -37,7 +37,7 @@ class Keys {
     const VERSION = self::PREFIX . 'version';
 
     /**
-     * WpPluginKit installed option key.
+     * WpPluginKit settings option key.
      *
      * @var string
      *

@@ -6,7 +6,7 @@ import { register } from '@wordpress/data';
 /**
  * Internal dependencies.
  */
-import itemStore from './todos';
+import itemStore from './products';
 
 /**
  * Register stores.

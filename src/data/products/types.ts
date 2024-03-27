@@ -1,10 +1,10 @@
-export const SET_LOADING = 'SET_LOADING';
+export const SET_IS_LOADING = 'SET_IS_LOADING';
 export const SET_FORM = 'SET_FORM';
 export const ADD_ITEM = 'ADD_ITEM';
-export const SET_SAVING = 'SET_SAVING';
+export const SET_IS_SAVING = 'SET_IS_SAVING';
 export const GET_ITEMS = 'GET_ITEMS';
-export const SET_TOTAL = 'SET_TOTAL';
-export const SET_TOTAL_PAGE = 'SET_TOTAL_PAGE';
+export const SET_TOTAL_ITEMS = 'SET_TOTAL_ITEMS';
+export const SET_TOTAL_PAGES = 'SET_TOTAL_PAGES';
 export const GET_ITEM_DETAIL = 'GET_ITEM_DETAIL';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_DELETING = 'SET_DELETING';
