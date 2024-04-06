@@ -1,8 +1,8 @@
 === WP Plugin Kit ===
 Contributors: wp-plugin-kit
 Tags: wordpress, plugin, starter
-Requires at least: 5.8
-Tested up to: 6.4
+Requires at least: 6.2
+Tested up to: 6.5
 Requires PHP: 7.4
 Stable tag: 0.1.0
 License: GPL-2.0-or-later
