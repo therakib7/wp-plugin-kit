@@ -10,8 +10,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import Spinner from '@/components/preloader/spinner';
-import Topbar from '@/components/topbar';
-import PageContent from '@/components/page-content';
+import { Header, Content } from '@/components/layout';
 import { get, add } from '@/utils/api';
 import { reducer, initialState } from './reducer';
 
@@ -68,7 +67,7 @@ const Settings = () => {
 
 	return (
 		<>
-			<Topbar label={ __( 'Settings', 'wp-plugin-kit' ) }>
+			<Header label={ __( 'Settings', 'wp-plugin-kit' ) }>
 				{ ! isLoading && (
 					<button
 						onClick={ handleSubmit }
@@ -78,9 +77,9 @@ const Settings = () => {
 						{ __( 'Save Changes', 'wp-plugin-kit' ) }
 					</button>
 				) }
-			</Topbar>
+			</Header>
 
-			<PageContent>
+			<Content>
 				{ isLoading && <Spinner /> }
 
 				{ ! isLoading && (
@@ -195,7 +194,7 @@ const Settings = () => {
 						</div>
 					</div>
 				) }
-			</PageContent>
+			</Content>
 		</>
 	);
 };

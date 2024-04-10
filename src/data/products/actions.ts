@@ -21,6 +21,8 @@ const {
 	GET_SELECTED_ITEMS,
 	SET_FORM,
 	SET_FILTER,
+	ADD_ITEM,
+	UPDATE_ITEM,
 	DELETE_ITEM,
 	FETCH_FROM_API,
 } = ACTION_TYPES;
@@ -104,15 +106,15 @@ const actions = {
 		} = yield actions.fetchFromAPIUnparsed( path );
 
 		let totalPages = 0;
-		let totalCount = 0;
+		let totalItems = 0;
 
 		if ( response.headers !== undefined ) {
 			totalPages = parseInt( response.headers.get( 'X-WP-TotalPages' ) );
-			totalCount = parseInt( response.headers.get( 'X-WP-Total' ) );
+			totalItems = parseInt( response.headers.get( 'X-WP-Total' ) );
 		}
 
 		yield actions.setTotalPages( totalPages );
-		yield actions.setTotalItems( totalCount );
+		yield actions.setTotalItems( totalItems );
 		yield actions.setItems( response.data );
 		return actions.setIsLoading( false );
 	},
@@ -129,7 +131,7 @@ const actions = {
 
 		try {
 			let response: IResponse = {};
-			if ( payload.id > 0 ) {
+			if ( payload.id && payload.id > 0 ) {
 				response = yield {
 					type: UPDATE_ITEM,
 					payload,

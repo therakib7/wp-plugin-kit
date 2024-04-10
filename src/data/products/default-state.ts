@@ -8,7 +8,7 @@ export const defaultForm: IProduct = {
 	id: null,
 	title: '',
 	description: '',
-	category_id: null,
+	category_ids: [],
 	is_active: 1,
 	image_id: null,
 	gallery_ids: [],

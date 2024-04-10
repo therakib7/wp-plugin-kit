@@ -23,7 +23,7 @@
  */
 .wp-admin.wp-plugin-kit {
 
-	.wp-plugin-kit-topbar {
+	.wp-plugin-kit-header {
 		position: sticky;
 		top: 32px;
 		z-index: 9989;
@@ -31,13 +31,13 @@
 		background-color: #fff;
 		box-shadow: 0 1px 2px 0 rgba(16, 39, 68, 0.08);
 
-		.wp-plugin-kit-topbar-content {
+		.wp-plugin-kit-header-content {
 			max-width: 1020px;
 			margin: auto;
 			height: 70px;
 			padding: 15px 0;
 
-			.wp-plugin-kit-topbar-label {
+			.wp-plugin-kit-header-label {
 				font-size: 16px;
 				font-weight: 400;
 				font-family: inherit;

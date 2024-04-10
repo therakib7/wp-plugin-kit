@@ -3,7 +3,7 @@ interface Props {
 	children: any;
 }
 
-const PageContent = ( { className = '', children }: Props ) => {
+const Content = ( { className = '', children }: Props ) => {
 	return (
 		<div className={ `wp-plugin-kit-content ${ className }` }>
 			{ children }
@@ -11,4 +11,4 @@ const PageContent = ( { className = '', children }: Props ) => {
 	);
 };
 
-export default PageContent;
+export default Content;

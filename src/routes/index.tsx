@@ -14,12 +14,17 @@ import { createHashRouter } from 'react-router-dom';
  * Internal dependencies
  */
 const Settings = lazy( () => import( '@/pages/settings' ) );
+const Products = lazy( () => import( '@/pages/products' ) );
 import NotFound from '@/pages/404';
 
 const Router = createHashRouter( [
 	{
 		path: '/',
 		element: <Settings />,
+	},
+	{
+		path: '/products',
+		element: <Products />,
 	},
 	{
 		path: '/settings',
