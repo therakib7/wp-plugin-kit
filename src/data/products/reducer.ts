@@ -16,7 +16,9 @@ const {
 	GET_CURRENT_ITEM,
 	GET_SELECTED_ITEMS,
 	SET_FORM,
+	SET_CATEGORIES,
 	SET_FILTER,
+	SET_ERROR
 } = ACTION_TYPES;
 
 const reducer = ( state = defaultState, action: any ) => {
@@ -25,6 +27,12 @@ const reducer = ( state = defaultState, action: any ) => {
 			return {
 				...state,
 				form: action.form,
+			};
+
+		case SET_CATEGORIES:
+			return {
+				...state,
+				categories: action.categories,
 			};
 
 		case SET_IS_LOADING:
@@ -91,6 +99,12 @@ const reducer = ( state = defaultState, action: any ) => {
 			return {
 				...state,
 				filters: action.filters,
+			};
+
+		case SET_ERROR:
+			return {
+				...state,
+				errors: action.errors,
 			};
 	}
 

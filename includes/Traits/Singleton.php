@@ -1,4 +1,5 @@
 <?php
+
 namespace Therakib7\WpPluginKit\Traits;
 
 /**

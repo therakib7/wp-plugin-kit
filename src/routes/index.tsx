@@ -8,32 +8,45 @@
  * External dependencies
  */
 import { lazy } from '@wordpress/element';
-import { createHashRouter } from 'react-router-dom';
 
 /**
  * Internal dependencies
  */
 const Settings = lazy( () => import( '@/pages/settings' ) );
 const Products = lazy( () => import( '@/pages/products' ) );
+const ProductAdd = lazy( () => import( '@/pages/products/Add' ) );
+const ProductEdit = lazy( () => import( '@/pages/products/Edit' ) );
 import NotFound from '@/pages/404';
 
-const Router = createHashRouter( [
+const routes = [
 	{
 		path: '/',
-		element: <Settings />,
+		element: Settings,
 	},
 	{
 		path: '/products',
-		element: <Products />,
+		element: Products,
+	},
+	{
+		path: '/products/add',
+		element: ProductAdd,
+	},
+	/* {
+		path: '/products/:id',
+		element: ProductsForm,
+	}, */
+	{
+		path: '/products/:id/edit',
+		element: ProductEdit,
 	},
 	{
 		path: '/settings',
-		element: <Settings />,
+		element: Settings,
 	},
 	{
 		path: '*',
-		element: <NotFound />,
+		element: NotFound,
 	},
-] );
+];
 
-export default Router;
+export default routes;

@@ -11,6 +11,12 @@ const selectors = {
 		return form;
 	},
 
+	getCategories(state: CrudState) {
+        const { categories } = state;
+
+        return categories;
+    },
+
 	getIsLoading( state: CrudState ) {
 		const { isLoading } = state;
 

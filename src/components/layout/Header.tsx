@@ -1,19 +1,36 @@
-interface Props {
-	label: string;
-	children: any;
+/**
+ * External dependencies
+ */
+import { memo } from '@wordpress/element';
+import { Link } from 'react-router-dom';
+import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
+import NavMenu from './NavMenu';
+
+function Header() {
+    return (
+        <header className="sticky top-0 md:top-6 bg-white z-30 shadow-sm mb-2">
+            <div className="px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16 -mb-px">
+                    <div className="flex lg:block">
+                        <Link
+                            to="/"
+                            onClick={() => {}}
+                            className="text-gray-900 font-medium text-lg focus:outline-none focus:shadow-none"
+                        >
+                            <span className="text-primary">WP Plugin Kit</span>
+                        </Link>
+                    </div>
+                    <div className="flex items-center mb-1">
+                        <NavMenu />
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
 }
 
-const Header = ( { label, children }: Props ) => {
-	return (
-		<div className="wp-plugin-kit-header">
-			<div className="wp-plugin-kit-header-content flex justify-between items-center">
-				<h2 className="wp-plugin-kit-header-label text-gray-900">
-					{ label }
-				</h2>
-				<div className="wp-plugin-kit-header-action">{ children }</div>
-			</div>
-		</div>
-	);
-};
-
-export default Header;
+export default memo(Header);

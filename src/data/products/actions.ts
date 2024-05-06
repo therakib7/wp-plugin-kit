@@ -3,6 +3,7 @@
  */
 
 import { IResponse } from '@/interfaces';
+import { Select2SingleRow } from '@/components/inputs/Select2Input';
 import { IProduct } from '@/interfaces/product';
 import { endpoint } from './endpoint';
 import { defaultForm } from './default-state';
@@ -20,7 +21,9 @@ const {
 	GET_CURRENT_ITEM,
 	GET_SELECTED_ITEMS,
 	SET_FORM,
+	SET_CATEGORIES,
 	SET_FILTER,
+	SET_ERROR,
 	ADD_ITEM,
 	UPDATE_ITEM,
 	DELETE_ITEM,
@@ -34,6 +37,13 @@ const actions = {
 			form,
 		};
 	},
+
+	setCategories(categories: Array<Select2SingleRow>) {
+        return {
+            type: SET_CATEGORIES,
+            categories,
+        };
+    },
 
 	setIsLoading( isLoading: boolean ) {
 		return {
@@ -88,41 +98,6 @@ const actions = {
 		return {
 			type: GET_SELECTED_ITEMS,
 			selectedItems,
-		};
-	},
-
-	*setFilters( filters = {} ) {
-		yield actions.setIsLoading( true );
-		yield actions.setFilterObject( filters );
-
-		const queryParam = new URLSearchParams(
-			filters as URLSearchParams
-		).toString();
-
-		const path = `${ endpoint }?${ queryParam }`;
-		const response: {
-			headers: Headers;
-			data: any;
-		} = yield actions.fetchFromAPIUnparsed( path );
-
-		let totalPages = 0;
-		let totalItems = 0;
-
-		if ( response.headers !== undefined ) {
-			totalPages = parseInt( response.headers.get( 'X-WP-TotalPages' ) );
-			totalItems = parseInt( response.headers.get( 'X-WP-Total' ) );
-		}
-
-		yield actions.setTotalPages( totalPages );
-		yield actions.setTotalItems( totalItems );
-		yield actions.setItems( response.data );
-		return actions.setIsLoading( false );
-	},
-
-	setFilterObject( filters: object ) {
-		return {
-			type: SET_FILTER,
-			filters,
 		};
 	},
 
@@ -197,6 +172,48 @@ const actions = {
 		} catch ( error ) {
 			yield actions.setIsDeleting( false );
 		}
+	},
+
+	*setFilters( filters = {} ) {
+		yield actions.setIsLoading( true );
+		yield actions.setFilterObject( filters );
+
+		const queryParam = new URLSearchParams(
+			filters as URLSearchParams
+		).toString();
+
+		const path = `${ endpoint }?${ queryParam }`;
+		const response: {
+			headers: Headers;
+			data: any;
+		} = yield actions.fetchFromAPIUnparsed( path );
+
+		let totalPages = 0;
+		let totalItems = 0;
+
+		if ( response.headers !== undefined ) {
+			totalPages = parseInt( response.headers.get( 'X-WP-TotalPages' ) );
+			totalItems = parseInt( response.headers.get( 'X-WP-Total' ) );
+		}
+
+		yield actions.setTotalPages( totalPages );
+		yield actions.setTotalItems( totalItems );
+		yield actions.setItems( response.data );
+		return actions.setIsLoading( false );
+	},
+
+	setFilterObject( filters: object ) {
+		return {
+			type: SET_FILTER,
+			filters,
+		};
+	},
+
+	setErrors( errors: object ) {
+		return {
+			type: SET_ERROR,
+			errors,
+		};
 	},
 };
 

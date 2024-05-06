@@ -1,7 +1,7 @@
 /**
  * Internal dependencies.
  */
-import Header from './Header';
+import Header from './Headerd';
 import Content from './Content';
 
 export {

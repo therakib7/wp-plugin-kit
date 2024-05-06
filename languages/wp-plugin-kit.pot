@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-01T09:29:46+00:00\n"
+"POT-Creation-Date: 2024-05-05T10:04:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: wp-plugin-kit\n"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: includes/Admin/Menu.php:45
 #: includes/Admin/Menu.php:46
-#: build/759.js:1
+#: build/792.js:1
 msgid "Settings"
 msgstr ""
 
@@ -71,31 +71,140 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: build/759.js:1
+#: build/301.js:1
+#: build/303.js:1
+msgid "-- Select --"
+msgstr ""
+
+#: build/301.js:1
+msgid "Sorry ! No data found."
+msgstr ""
+
+#: build/301.js:1
+msgid "Edit"
+msgstr ""
+
+#: build/301.js:1
+msgid "Are you sure?"
+msgstr ""
+
+#: build/301.js:1
+msgid "Are you sure to delete the job?"
+msgstr ""
+
+#: build/301.js:1
+msgid "Deleted!"
+msgstr ""
+
+#: build/301.js:1
+msgid "Delete"
+msgstr ""
+
+#: build/301.js:1
+msgid "Product status updated"
+msgstr ""
+
+#: build/301.js:1
+msgid "Product has been updated successfully."
+msgstr ""
+
+#: build/301.js:1
+msgid "Make Draft"
+msgstr ""
+
+#: build/301.js:1
+msgid "Make Publish"
+msgstr ""
+
+#: build/301.js:1
+msgid "Product"
+msgstr ""
+
+#: build/301.js:1
+msgid "Product type"
+msgstr ""
+
+#: build/301.js:1
+msgid "Company"
+msgstr ""
+
+#: build/301.js:1
+msgid "Status"
+msgstr ""
+
+#: build/301.js:1
+msgid "Action"
+msgstr ""
+
+#: build/301.js:1
+msgid "New"
+msgstr ""
+
+#: build/301.js:1
+msgid "Search Jobs…"
+msgstr ""
+
+#: build/301.js:1
+msgid "Sorry !! No jobs found…"
+msgstr ""
+
+#: build/303.js:1
+msgid "General Information"
+msgstr ""
+
+#: build/303.js:1
+msgid "Product Description"
+msgstr ""
+
+#: build/303.js:1
+msgid "Company Information"
+msgstr ""
+
+#: build/303.js:1
+msgid "Quick Jump"
+msgstr ""
+
+#: build/303.js:1
+msgid "Product title"
+msgstr ""
+
+#: build/303.js:1
+msgid "Enter Product title"
+msgstr ""
+
+#: build/303.js:1
+msgid "Product details"
+msgstr ""
+
+#: build/303.js:1
+msgid "Enter Product description and necessary requirements."
+msgstr ""
+
+#: build/792.js:1
 msgid "Successfully Changed"
 msgstr ""
 
-#: build/759.js:1
+#: build/792.js:1
 msgid "Save Changes"
 msgstr ""
 
-#: build/759.js:1
+#: build/792.js:1
 msgid "Layout"
 msgstr ""
 
-#: build/759.js:1
+#: build/792.js:1
 msgid "Position"
 msgstr ""
 
-#: build/759.js:1
+#: build/792.js:1
 msgid "Top"
 msgstr ""
 
-#: build/759.js:1
+#: build/792.js:1
 msgid "Bottom"
 msgstr ""
 
-#: build/759.js:1
+#: build/792.js:1
 msgid "Close After (Seconds)"
 msgstr ""
 

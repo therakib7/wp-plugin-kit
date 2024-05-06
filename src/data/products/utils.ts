@@ -6,7 +6,7 @@ import { IProduct } from '@/interfaces/product';
 export const prepareItemForSubmit = ( item: IProduct ) => {
 	const data = {
 		...item,
-		category_ids: item.category_ids,
+		category_id: item.category_id,
 	};
 
 	if ( item.is_active !== undefined ) {

@@ -20,7 +20,7 @@ trait Queryable {
      *
      * @return string|null|array
      */
-    public function all( array $args = [] ) {
+    public function all( $table, array $args = [] ) {
         $columns  = ! empty( $args['columns'] ) ? sanitize_text_field( $args['columns'] ) : '*';
         $where    = ! empty( $args['where'] ) ? sanitize_text_field( $args['where'] ) : '';
         $orderby  = ! empty( $args['orderby'] ) ? sanitize_text_field( $args['orderby'] ) : $this->primary_key;
@@ -33,7 +33,7 @@ trait Queryable {
             return $this->db->get_var( "SELECT COUNT({$this->primary_key}) FROM {$this->table} {$where}" );
         }
 
-        $sql = "SELECT $columns FROM {$this->table} {$where}";
+        $sql = "SELECT $columns FROM {$table} {$where}";
         $sql .= " ORDER BY $orderby $order";
         $sql .= " LIMIT $per_page";
         $sql .= $page ? ' OFFSET ' . ( $page - 1 ) * $per_page : '';
@@ -94,12 +94,12 @@ trait Queryable {
      *
      * @return int|false The number of rows inserted, or false on error.
      */
-    public function create( array $data, array $format = [] ): ?int {
+    public function create( string $table, array $data, array $format = [] ): ?int {
         if ( empty( $data ) ) {
             return false;
         }
 
-        $inserted = $this->db->insert( $this->table, $data, $format );
+        $inserted = $this->db->insert( $table, $data, $format );
 
         if ( $inserted ) {
             return $this->db->insert_id;

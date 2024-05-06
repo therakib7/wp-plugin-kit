@@ -17,12 +17,17 @@ export interface IProduct {
 	/**
 	 * Product Category IDs.
 	 */
-	category_ids: Array< number >;
+	category_id: number | null;
 
 	/**
-	 * Status published or draft
+	 * Product Price.
 	 */
-	is_active: boolean | number;
+	price: string | null;
+
+	/**
+	 * Product Currency.
+	 */
+	currency: string | null;
 
 	/**
 	 * Product image ID.
@@ -33,9 +38,26 @@ export interface IProduct {
 	 * Product gallery IDS.
 	 */
 	gallery_ids: Array< number >;
+
+	/**
+	 * Status published or draft
+	 */
+	is_active: boolean | number;
 }
 
 export interface IProductFormData extends IProduct {}
+
+export interface IProductFilter {
+    /**
+     * Job filter by page no.
+     */
+    page?: number;
+
+    /**
+     * Job search URL params.
+     */
+    search?: string;
+}
 
 export interface IProductCategories {
 	/**

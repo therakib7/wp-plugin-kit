@@ -2,11 +2,18 @@
  * Internal dependencies.
  */
 
+import { ISelect2Input } from '@/components/inputs/Select2Input';
+
 export interface CrudState {
 	/**
 	 * Item Form data.
 	 */
 	form: object;
+
+	/**
+     * All job types as array of {label, value}.
+     */
+    categories: Array<ISelect2Input>;
 
 	/**
 	 * Is items isLoading.
